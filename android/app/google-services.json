@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "152167280912",
+    "project_id": "dubchak-practice-project-4bcdf",
+    "storage_bucket": "dubchak-practice-project-4bcdf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152167280912:android:1eaae2e5637e163550b595",
+        "android_client_info": {
+          "package_name": "com.example.dubchak_practice_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152167280912-9n86ns3erkjn116n2svd39ttp2huv6gg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLG3eQJXMBD8E3PVZT7euTcUGRKfuDTG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "152167280912-9n86ns3erkjn116n2svd39ttp2huv6gg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "152167280912-20m0v9upjqmsb46a9882der9l0of2kcg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.dubchakPracticeProject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

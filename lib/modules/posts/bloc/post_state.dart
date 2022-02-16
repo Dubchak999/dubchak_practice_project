@@ -1,5 +1,6 @@
-import 'package:dubchak_practice_project/posts/models/post.dart';
 import 'package:equatable/equatable.dart';
+
+import '../models/post.dart';
 
 enum PostStatus { initial, success, failure }
 

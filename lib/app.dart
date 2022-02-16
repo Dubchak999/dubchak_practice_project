@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'posts/view/posts_page.dart';
+import 'modules/posts/view/posts_page.dart';
 
 // import 'counter/counter.dart';
 

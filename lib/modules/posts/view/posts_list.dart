@@ -1,9 +1,9 @@
-import 'package:dubchak_practice_project/posts/bloc/post_bloc.dart';
-import 'package:dubchak_practice_project/posts/bloc/post_event.dart';
-import 'package:dubchak_practice_project/posts/bloc/post_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bloc/post_bloc.dart';
+import '../bloc/post_event.dart';
+import '../bloc/post_state.dart';
 import '../widgets/bottom_loader.dart';
 import '../widgets/post_list_item.dart';
 

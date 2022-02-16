@@ -1,0 +1,12 @@
+lib/modules, we could see that the code is split based on the app features, like products, product details and cart. Each module shares the following structure:
+bloc — if the module requires state management, we store all the bloc-related files (BLoC class itself, events and states) there;
+models — contains all the model classes, entities representing the business-related data, like product, cart, cart item, etc.;
+pages — stores Flutter Widgets which represent the actual pages that have a specific route to them;
+repositories — in simple words, if the module needs to load some kind of data from the database, 
+third-party API, internal storage or any other data source, we store those classes here. 
+Also, this directory could be named as, or you could even have both, repositories and services, 
+directories if you see a need for that.
+ Repositories should provide high-level endpoints/functions to retrieve the data without exposing the 
+ implementation details on how this data was retrieved and/or formatted. This way, you just simply use these functions
+  in your BLoC classes to get the data you need. This is called a Repository Pattern, you should definitely learn more about it;
+widgets — all the UI components, which belongs to this module, should be stored here.

@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:google_sign_in/google_sign_in.dart';
-import 'dart:async';
-import 'package:firebase_auth_platform_interface/firebase_auth_platform_interface.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:meta/meta.dart';
 import 'package:cache/cache.dart';
@@ -48,32 +46,32 @@ class SignUpWithEmailAndPasswordFailure implements Exception {
   final String message;
 }
 
-class LodInWithEmailAndPasswordFailure implements Exception {
-  const LodInWithEmailAndPasswordFailure([
+class LogInWithEmailAndPasswordFailure implements Exception {
+  const LogInWithEmailAndPasswordFailure([
     this.message = 'An unknown exception occured.',
   ]);
 
-  factory LodInWithEmailAndPasswordFailure.fromCode(String code) {
+  factory LogInWithEmailAndPasswordFailure.fromCode(String code) {
     switch (code) {
       case 'invalid-email':
-        return const LodInWithEmailAndPasswordFailure(
+        return const LogInWithEmailAndPasswordFailure(
           'Email is not valid or badly formatted.',
         );
       case 'user-disabled':
-        return const LodInWithEmailAndPasswordFailure(
+        return const LogInWithEmailAndPasswordFailure(
           'This user has been disabled. Please contact support for help.',
         );
       case 'user-not-found':
-        return const LodInWithEmailAndPasswordFailure(
+        return const LogInWithEmailAndPasswordFailure(
           'Email is not found, please create an account.',
         );
       case 'wrong-password':
-        return const LodInWithEmailAndPasswordFailure(
+        return const LogInWithEmailAndPasswordFailure(
           'Incorrect password, please try again.',
         );
 
       default:
-        return const LodInWithEmailAndPasswordFailure();
+        return const LogInWithEmailAndPasswordFailure();
     }
   }
 
@@ -156,7 +154,7 @@ class AuthenticationRepository {
         email: email,
         password: password,
       );
-    } on FirebaseAuthException catch (e) {
+    } on firebase_auth.FirebaseAuthException catch (e) {
       throw SignUpWithEmailAndPasswordFailure.fromCode(e.code);
     } catch (_) {
       throw const SignUpWithEmailAndPasswordFailure();
@@ -181,7 +179,7 @@ class AuthenticationRepository {
         );
       }
       await _firebaseAuth.signInWithCredential(credential);
-    } on FirebaseAuthException catch (e) {
+    } on firebase_auth.FirebaseAuthException catch (e) {
       throw LogInWithGoogleFailure.fromCode(e.code);
     } catch (_) {
       throw const LogInWithGoogleFailure();

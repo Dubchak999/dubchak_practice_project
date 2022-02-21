@@ -39,7 +39,7 @@ packages:
   authentication_repository:
     dependency: "direct main"
     description:
-      path: "lib/modules/firebade_login/packages/authentication_repository"
+      path: "lib/modules/firebase_login/packages/authentication_repository"
       relative: true
     source: path
     version: "1.0.0"
@@ -74,7 +74,7 @@ packages:
   cache:
     dependency: transitive
     description:
-      path: "lib/modules/firebade_login/packages/cache"
+      path: "lib/modules/firebase_login/packages/cache"
       relative: true
     source: path
     version: "1.0.0"
@@ -290,7 +290,7 @@ packages:
   form_inputs:
     dependency: "direct main"
     description:
-      path: "lib/modules/firebade_login/packages/form_inputs"
+      path: "lib/modules/firebase_login/packages/form_inputs"
       relative: true
     source: path
     version: "1.0.0+1"

@@ -1,9 +1,7 @@
+import 'package:dubchak_practice_project/modules/firebase_login/sign_up/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:form_inputs/form_inputs.dart';
 import 'package:formz/formz.dart';
-
-import '../sign_up.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({Key? key}) : super(key: key);
@@ -17,25 +15,28 @@ class SignUpForm extends StatelessWidget {
         } else if (state.status.isSubmissionFailure) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
-            ..showSnackBar(SnackBar(
-                content: Text(state.errorMessage ?? 'Sign Up Failure')));
+            ..showSnackBar(
+              SnackBar(
+                content: Text(state.errorMessage ?? 'Sign Up Failure'),
+              ),
+            );
         }
       },
       child: Align(
         alignment: const Alignment(0, -1 / 3),
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
+          children: const [
             _EmailInput(),
-            const SizedBox(
+            SizedBox(
               height: 8,
             ),
             _PasswordInput(),
-            const SizedBox(
+            SizedBox(
               height: 8,
             ),
             _ConfirmPasswordInput(),
-            const SizedBox(
+            SizedBox(
               height: 8,
             ),
             _SignUpButton(),
@@ -55,13 +56,14 @@ class _EmailInput extends StatelessWidget {
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
         return TextField(
-          key: Key('signUpForm_emailInput_textField'),
+          key: const Key('signUpForm_emailInput_textField'),
           onChanged: (email) => context.read<SignUpCubit>().emailChanged(email),
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-              labelText: 'email',
-              helperText: '',
-              errorText: state.email.invalid ? 'invalid email' : null),
+            labelText: 'email',
+            helperText: '',
+            errorText: state.email.invalid ? 'invalid email' : null,
+          ),
         );
       },
     );
@@ -77,7 +79,7 @@ class _PasswordInput extends StatelessWidget {
       buildWhen: (previous, current) => previous.password != current.password,
       builder: (context, state) {
         return TextField(
-          key: Key('signUpForm_passwordInput_textField'),
+          key: const Key('signUpForm_passwordInput_textField'),
           onChanged: (password) =>
               context.read<SignUpCubit>().passwordChanged(password),
           obscureText: true,
@@ -103,7 +105,7 @@ class _ConfirmPasswordInput extends StatelessWidget {
           previous.confirmedPassword != current.confirmedPassword,
       builder: (context, state) {
         return TextField(
-          key: Key('signUpForm_confirmPasswordInput_textField'),
+          key: const Key('signUpForm_confirmPasswordInput_textField'),
           onChanged: (confirmPassword) => context
               .read<SignUpCubit>()
               .confirmedPasswordChanged(confirmPassword),
@@ -132,7 +134,7 @@ class _SignUpButton extends StatelessWidget {
         return state.status.isSubmissionInProgress
             ? const CircularProgressIndicator()
             : ElevatedButton(
-                key: Key('signUpForm_continue_elevatedButton'),
+                key: const Key('signUpForm_continue_elevatedButton'),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
@@ -142,7 +144,8 @@ class _SignUpButton extends StatelessWidget {
                 onPressed: state.status.isValidated
                     ? () => context.read<SignUpCubit>().signUpFormSubmitted()
                     : null,
-                child: const Text('SIGN UP'));
+                child: const Text('SIGN UP'),
+              );
       },
     );
   }

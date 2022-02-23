@@ -1,6 +1,7 @@
-import 'package:equatable/equatable.dart';
+// ignore_for_file: lines_longer_than_80_chars
 
-import '../models/post.dart';
+import 'package:dubchak_practice_project/modules/posts/models/post.dart';
+import 'package:equatable/equatable.dart';
 
 enum PostStatus { initial, success, failure }
 

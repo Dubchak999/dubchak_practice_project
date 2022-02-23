@@ -1,8 +1,7 @@
 import 'package:authentication_repository/authentication_repository.dart';
+import 'package:dubchak_practice_project/modules/firebase_login/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../login.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);

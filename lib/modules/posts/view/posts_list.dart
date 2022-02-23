@@ -1,11 +1,10 @@
+import 'package:dubchak_practice_project/modules/posts/bloc/post_bloc.dart';
+import 'package:dubchak_practice_project/modules/posts/bloc/post_event.dart';
+import 'package:dubchak_practice_project/modules/posts/bloc/post_state.dart';
+import 'package:dubchak_practice_project/modules/posts/widgets/bottom_loader.dart';
+import 'package:dubchak_practice_project/modules/posts/widgets/post_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../bloc/post_bloc.dart';
-import '../bloc/post_event.dart';
-import '../bloc/post_state.dart';
-import '../widgets/bottom_loader.dart';
-import '../widgets/post_list_item.dart';
 
 class PostsList extends StatefulWidget {
   const PostsList({Key? key}) : super(key: key);
@@ -19,7 +18,7 @@ class _PostsListState extends State<PostsList> {
   @override
   void initState() {
     super.initState();
-    _scrollController.addListener((_onScroll));
+    _scrollController.addListener(_onScroll);
   }
 
   @override
@@ -47,10 +46,8 @@ class _PostsListState extends State<PostsList> {
               controller: _scrollController,
             );
 
-          default:
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+          case PostStatus.initial:
+            return const Center(child: Text('failed to fetch posts'));
         }
       },
     );

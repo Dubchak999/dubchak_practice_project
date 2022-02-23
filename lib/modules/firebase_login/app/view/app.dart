@@ -1,15 +1,15 @@
 import 'package:authentication_repository/authentication_repository.dart';
+import 'package:dubchak_practice_project/modules/firebase_login/app/bloc/app_bloc.dart';
+import 'package:dubchak_practice_project/modules/firebase_login/app/routes/routes.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/app_bloc.dart';
-import '../routes/routes.dart';
-
 class App extends StatelessWidget {
-  const App(
-      {Key? key, required AuthenticationRepository authenticationRepository})
-      : _authenticationRepository = authenticationRepository,
+  const App({
+    Key? key,
+    required AuthenticationRepository authenticationRepository,
+  })  : _authenticationRepository = authenticationRepository,
         super(key: key);
 
   final AuthenticationRepository _authenticationRepository;
